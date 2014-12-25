@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class RegControlller {
     @RequestMapping("reg")
-    public String reg(@ModelAttribute("mer") Memberinfo mer){
+    public String reg(@ModelAttribute("mer") Memberinfo memberinfo) {
         return "reg";
     }
     @RequestMapping("register")

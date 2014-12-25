@@ -15,6 +15,11 @@
     <title>无标题文档</title>
     <link href="${ctx}/css/style.css" rel="stylesheet" type="text/css" />
     <link href="${ctx}/css/LoginAndReg.css" rel="stylesheet" type="text/css" />
+    <%--<script language="javascript">--%>
+    <%--function loadimage(){--%>
+    <%--document.getElementById("Validate_Code").src = "/valid?t"+Math.random();--%>
+    <%--}--%>
+    <%--</script>--%>
 </head>
 
 <body>
@@ -67,41 +72,53 @@
         </map>
     </div><!--guide01 end -->
     <!--body start -->
-    <form:form action="/regist" method="post" modelAttribute="mer">
+    <form:form modelAttribute="mer" action="/regist" method="post">
     <div id="body">
         <div id="Login">
             <h1 align="left"><img src="${ctx}/images/pic_title.gif"></h1>
             <table width="800" border="0" align="center" cellpadding="0" cellspacing="0" class="lineJL">
                 <tbody><tr>
                     <td class="sty03" valign="top" width="236" align="right">请填写您的Email地址：</td>
-                    <td class="sty01" valign="top" width="219"><form:input path="" name="Email" id="Email" onblur="Check_Email()" type="text"></form:input><span class="Reginput" id="span_CheckUsername"></span></td>
+                    <td class="sty01" valign="top" width="219">
+                        <form:input path="email"/><span class="Reginput" id="span_CheckUsername"></span></td>
                     <td class="sty04" valign="top" width="425" align="left">　请填写有效的 Email地址作为下次登录的用户名，<br>　同时我们也会给这个地址发送您的帐户信息、订单通知等。</td>
                 </tr>
                  <tr>
                     <td class="sty03" valign="top" align="right">请输入用户名：</td>
-                    <td class="sty01" valign="top"><input id="MemberName" name="MemberName" maxlength="16"  value="" type="text"><span id="membername1" class="Reginput"></span></td>
-                    <td class="sty03 sty04" valign="top" align="left">　用户名请设为6-16位字母或数字</td>
+                     <td class="sty01" valign="top">
+                         <form:input path="membername"/><span id="membername1" class="Reginput"></span></td>
+                     <td class="sty03 sty04" valign="top" align="left">　用户名请设为6-16位字母或数字</td>
                  </tr>
                  <tr>
                     <td class="sty03" valign="top" align="right">请输入真实姓名：</td>
-                    <td class="sty01" valign="top"><input id="Name" name="Name" maxlength="16"  value="" type="text"><span id="RealName" class="Reginput"></span></td>
+                     <td class="sty01" valign="top">
+                         <form:input path="name"/><span id="RealName" class="Reginput"></span></td>
                      <td class="sty03 sty04" valign="top" align="left">　请输入您的正是姓名</td>
                  </tr>
                 <tr>
                     <td class="sty03" valign="top" align="right">请设定密码：</td>
-                    <td class="sty01" valign="top"><input id="PassWord" name="PassWord" maxlength="16" onchange="ChangePassword();" value="" type="password"><span id="CheckRePassWord" class="Reginput"></span></td>
+                    <td class="sty01" valign="top">
+                        <form:password path="password"/><span id="CheckRePassWord" class="Reginput"></span></td>
                     <td class="sty03 sty04" valign="top" align="left">　密码请设为6-16位字母或数字</td>
                 </tr>
                 <tr>
                     <td class="sty03" valign="top" align="right">请再次输入设定密码：</td>
-                    <td class="sty01" valign="top"><input id="RexPassWord" name="RexPassWord" maxlength="16" onchange="Check_RePassWord()" value="" type="password"><span id="ReCheckRePassWord" class="Reginput"></span></td>
+                    <td class="sty01" valign="top">
+                        <input id="RexPassWord" name="RexPassWord" maxlength="16" onchange="Check_RePassWord()" value=""
+                               type="password"><span id="ReCheckRePassWord" class="Reginput"></span></td>
                     <td align="left">　</td>
                 </tr>
                 <tr>
                     <td class="sty03" valign="top" align="right">请输入验证码：</td>
-                    <td class="sty02" colspan="2" valign="top"><input name="Validate_Code" id="Validate_Code" class="inputSty01" onchange="CheckValidateCode()" style="width:100px;" type="text"><img id="Img1" style="vertical-align: top; padding: 0pt 0pt 0pt 8px;" src="${ctx}/images/NewValidateCode.jpg" onclick="this.src='/PublicControls/NewValidateCode.aspx?height=25&amp;width=100&amp;codeLen=5&amp;photoType=2&amp;t='+new Date().getTime()" border="0">   <span class="sty03 sty04"><a href="javascript:ChangeImg1()">看不清，换一张</a></span>
-                        <span class="Reginput" id="CheckValidateCode" style="width: 220px;"></span>
-                    </td>
+                    <td class="sty02" colspan="2" valign="top"><input name="Validate_Code" id="Validate_Code"
+                                                                      class="inputSty01" onchange="CheckValidateCode()"
+                                                                      style="width:100px;" type="text"/><img id="Img1"
+                                                                                                             style="vertical-align: top; padding: 0pt 0pt 0pt 8px; height: 20px; width: 70px "
+                                                                                                             src="${ctx}/valid"
+                                                                                                             onclick="this.src='/valid?t='+new Date().getTime()"
+                                                                                                             border="0"/>
+                        <span class="sty03 sty04 ">看不清，请点击图片换一张</span>
+                        <span class="Reginput" id="CheckValidateCode" style="width: 220px;"></span></td>
                 </tr>
                 <tr>
                     <td>　</td>
