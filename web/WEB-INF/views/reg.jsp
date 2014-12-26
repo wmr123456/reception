@@ -11,15 +11,66 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <title>用户注册</title>
+    <script language="JavaScript">
+        function valName() {
+            var pattern = new RegExp("^[a-z]([a-z0-9])*[-_]?([a-z0-9]+)$", "i");
+            var str1 = document.getElementById("name").value;
+            if (str1.length >= 6) {
+                if (pattern.test(str1)) {
+                    if (document.getElementById("usernameyanzheng")) {
+                        document.getElementById("usernameyanzheng").remove();
+                    }
+                    document.getElementById("membername1").innerHTML = "";
+                    return true;
+                } else {
+                    document.getElementById("membername1").innerHTML = "<span style='color: red' class='note'id='usernameyanzheng'>用户名应以字母开头的6-12位字符</span>";
+                    document.getElementById("name").focus();
+                }
+            }
+            else {
+                document.getElementById("membername1").innerHTML = "<span style='color: red' class='note'id='usernameyanzheng'>用户名应以字母开头的6-12位字符</span>";
+                document.getElementById("name").focus();
+                return false;
+            }
+        }
+        function valEmail() {
+            var str = document.getElementById("email").value;
+            var pattern = new RegExp("\\w+@(\\w+.)+[a-z]{2,3}");
+            if (str.match(pattern) == null) {
+                if (document.getElementById("emailyanzheng")) {
+                    document.getElementById("emailyanzheng").remove();
+                }
+                document.getElementById("span_CheckEmail").innerHTML = "<span style='color: red' class='note'id='emailyanzheng'>您输入的邮箱不合法，请输入正确的邮箱</span>";
+                document.getElementById("email").focus();
+                return false;
+            }
+            else {
+                document.getElementById("span_CheckEmail").innerHTML = "";
+                return true;
+            }
+        }
+
+        function valPassword() {
+            var str = document.getElementById("password").value;
+            if (str === document.getElementById("RexPassWord").value) {
+                if (document.getElementById("passwordyanzheng")) {
+                    document.getElementById("passwordyanzheng").remove();
+                }
+                document.getElementById("ReCheckRePassWord").innerHTML = "";
+                return true;
+            }
+            else {
+                document.getElementById("ReCheckRePassWord").innerHTML = "<span style='color: red' class='note'id='passwordyanzheng'>您两次输入的密码不一致请重新输入</span>";
+                document.getElementById("RexPassWord").focus();
+                return false;
+            }
+        }
+    </script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>无标题文档</title>
     <link href="${ctx}/css/style.css" rel="stylesheet" type="text/css" />
     <link href="${ctx}/css/LoginAndReg.css" rel="stylesheet" type="text/css" />
-    <%--<script language="javascript">--%>
-    <%--function loadimage(){--%>
-    <%--document.getElementById("Validate_Code").src = "/valid?t"+Math.random();--%>
-    <%--}--%>
-    <%--</script>--%>
 </head>
 
 <body>
@@ -72,7 +123,7 @@
         </map>
     </div><!--guide01 end -->
     <!--body start -->
-    <form:form modelAttribute="mer" action="/regist" method="post">
+    <form:form modelAttribute="mer" action="/register" method="post">
     <div id="body">
         <div id="Login">
             <h1 align="left"><img src="${ctx}/images/pic_title.gif"></h1>
@@ -80,13 +131,17 @@
                 <tbody><tr>
                     <td class="sty03" valign="top" width="236" align="right">请填写您的Email地址：</td>
                     <td class="sty01" valign="top" width="219">
-                        <form:input path="email"/><span class="Reginput" id="span_CheckUsername"></span></td>
+                        <form:input path="email" onblur="valEmail()" id="email"/><span class="Reginput"
+                                                                                       id="span_CheckEmail"><form:errors
+                            path="email" cssClass="errorClass"></form:errors></span></td>
                     <td class="sty04" valign="top" width="425" align="left">　请填写有效的 Email地址作为下次登录的用户名，<br>　同时我们也会给这个地址发送您的帐户信息、订单通知等。</td>
                 </tr>
                  <tr>
                     <td class="sty03" valign="top" align="right">请输入用户名：</td>
                      <td class="sty01" valign="top">
-                         <form:input path="membername"/><span id="membername1" class="Reginput"></span></td>
+                         <form:input path="membername" id="name" onblur="valName()"/><span id="membername1"
+                                                                                           class="Reginput"><form:errors
+                             path="membername" cssClass="errorClass"></form:errors></span></td>
                      <td class="sty03 sty04" valign="top" align="left">　用户名请设为6-16位字母或数字</td>
                  </tr>
                  <tr>
@@ -98,14 +153,16 @@
                 <tr>
                     <td class="sty03" valign="top" align="right">请设定密码：</td>
                     <td class="sty01" valign="top">
-                        <form:password path="password"/><span id="CheckRePassWord" class="Reginput"></span></td>
+                        <form:password path="password" id="password"/><span id="CheckRePassWord"
+                                                                            class="Reginput"></span></td>
                     <td class="sty03 sty04" valign="top" align="left">　密码请设为6-16位字母或数字</td>
                 </tr>
                 <tr>
                     <td class="sty03" valign="top" align="right">请再次输入设定密码：</td>
                     <td class="sty01" valign="top">
                         <input id="RexPassWord" name="RexPassWord" maxlength="16" onchange="Check_RePassWord()" value=""
-                               type="password"><span id="ReCheckRePassWord" class="Reginput"></span></td>
+                               type="password" onblur="valPassword()"><span id="ReCheckRePassWord" class="Reginput"/>
+                    </td>
                     <td align="left">　</td>
                 </tr>
                 <tr>
@@ -117,12 +174,14 @@
                                                                                                              src="${ctx}/valid"
                                                                                                              onclick="this.src='/valid?t='+new Date().getTime()"
                                                                                                              border="0"/>
-                        <span class="sty03 sty04 ">看不清，请点击图片换一张</span>
+                        <span class="sty03 ">看不清，请点击图片换一张</span>
                         <span class="Reginput" id="CheckValidateCode" style="width: 220px;"></span></td>
                 </tr>
                 <tr>
                     <td>　</td>
-                    <td align="right"> <a href="#"> <img src="${ctx}/images/submit.gif" style="width:91px; height:25px; border:0;" alt="完成注册" type="image" ></a> </td>
+                    <td align="right"><input type="submit" value=""
+                                             style="height: 25px; width: 91px; border: 0px; background:url(/images/submit.gif)"/>
+                    </td>
                     <td>　</td>
                 </tr>
                 <tr>
