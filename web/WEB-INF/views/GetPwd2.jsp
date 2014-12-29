@@ -11,7 +11,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>无标题文档</title>
+    <title>用户密码修改</title>
     <link href="${ctx}/css/style.css" rel="stylesheet" type="text/css" />
     <link href="${ctx}/css/LoginAndReg.css" rel="stylesheet" type="text/css" />
     <link href="${ctx}/css/GetPwd.css" rel="stylesheet" type="text/css" />
@@ -52,7 +52,8 @@
             <li><a href="#">台湾牛轧糖</a></li>
             <li><a href="#">蜜饯果脯</a></li>
             <li class="last">
-                <div id="welcome" class="welmsgdiv2"><span>您好，欢迎光临果果香。</span><a href="${ctx}/login">登录</a><span class="Lloginfg">&nbsp;</span><a href="${ctx}/reg">注册</a></div>
+                <div id="welcome" class="welmsgdiv2"><span>您好，欢迎光临果果香。</span><a href="${ctx}/login">登录</a><span
+                        class="Lloginfg">&nbsp;</span><a href="${ctx}/regist">注册</a></div>
             </li>
         </ul>
     </div>

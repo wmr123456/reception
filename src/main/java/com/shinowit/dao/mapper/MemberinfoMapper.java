@@ -2,8 +2,9 @@ package com.shinowit.dao.mapper;
 
 import com.shinowit.entity.Memberinfo;
 import com.shinowit.entity.MemberinfoCriteria;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface MemberinfoMapper {
     /**
@@ -97,4 +98,8 @@ public interface MemberinfoMapper {
     List<Memberinfo> selectPage(MemberinfoCriteria example);
 
     String selectMaxPrimaryKeyValue();
+
+    Memberinfo selectMemberinfo(String membername, String password);
+
+    Memberinfo selectMemPadd(String membername, String email);
 }

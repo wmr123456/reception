@@ -6,11 +6,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sorm" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>无标题文档</title>
+    <title>用户登录</title>
     <link href="${ctx}/css/style.css" rel="stylesheet" type="text/css" />
     <link href="${ctx}/css/LoginAndReg.css" rel="stylesheet" type="text/css" />
 </head>
@@ -50,7 +52,8 @@
             <li><a href="#">台湾牛轧糖</a></li>
             <li><a href="#">蜜饯果脯</a></li>
             <li class="last">
-                <div id="welcome" class="welmsgdiv2"><span>您好，欢迎光临果果香。</span><a href="${ctx}/login">登录</a><span class="Lloginfg">&nbsp;</span><a href="${ctx}/reg">注册</a></div>
+                <div id="welcome" class="welmsgdiv2"><span>您好，欢迎光临果果香。</span><a href="${ctx}/login">登录</a><span
+                        class="Lloginfg">&nbsp;</span><a href="${ctx}/regist">注册</a></div>
             </li>
         </ul>
     </div>
@@ -77,8 +80,11 @@
                             <li class="" id="one2" onclick="setTab('one',2,2)" style="display:none;">VIP用户</li>
                         </ul>
                     </div>
-                    <div class="regSetTabCon">
-                        <div style="display: block;" id="con_one_1"> <span class="blank20"></span>
+                    <form action="/Login" method="post">
+                        <div class="regSetTabCon">
+                            <span style="color: red;text-align:center; display:block">${msg}</span>
+
+                            <div style="display: block;" id="con_one_1"> <span class="blank20"></span>
                             <div class="FTextArea"><span>用户名：</span>
                                 <input name="UserName" id="UserName" class="" type="text" />
                             </div>
@@ -88,28 +94,11 @@
                             </div>
                             <span class="blank15"></span>
                             <div class="btnReg">
-                                <button type="button" class="" onclick="checkshopinglogin();"></button>
-                                <span><a href="GetPwd1.html" title="" target="_new">密码忘记了？</a></span></div>
-                            <span class="blank20"></span> </div>
-                        <div id="con_one_2" style="display: none;"> <span class="blank20"></span>
-                            <form name="PartnerForm" id="PartnerForm" method="post" style="margin: 0px;">
-                                <div class="FTextArea"><span>用户名：</span>
-                                    <input name="PartnerUserName" id="PartnerUserName" class="" type="text" />
-                                </div>
-                                <span class="blank20"></span>
-                                <div class="FTextArea"><span>密&nbsp;&nbsp;码：</span>
-                                    <input name="PartnerPassword" id="PartnerPassword" class="" onkeypress="PartLoginKeyDown(event);" type="password" />
-                                </div>
-                                <span class="blank15"></span>
-                                <div class="btnReg">
-                                    <button type="button" onclick="CheckPartLogin();" class=""></button>
-                                </div>
-                                <input name="Logintrue" value="true" type="hidden" />
-                                <input name="IsVjia" id="IsVjia" type="hidden" />
-                                <input name="IsLogIn" value="1" type="hidden" />
-                            </form>
-                            <span class="blank20"></span> </div>
+                                <button type="sibmit"></button>
+                                <span><a href="/GetPwd1" title="" target="_new">密码忘记了？</a></span></div>
+                                <span class="blank20"></span> </div>
                     </div>
+                    </form>
                     <span class="blank20"></span>
                     <div class="tishiArea">
                         <div class="tishiHead">温馨提示：</div>
@@ -127,7 +116,7 @@
     <!--footer start -->
     <div id="footer">
         <ul>
-            <li><a href="#">首页</a>|</li>
+            <li><a href="/index">首页</a>|</li>
             <li><a href="#">关于我们</a>|</li>
             <li><a href="#">新闻资讯</a>|</li>
             <li><a href="#">价单下载</a>|</li>

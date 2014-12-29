@@ -62,7 +62,7 @@
             }
             else {
                 document.getElementById("ReCheckRePassWord").innerHTML = "<span style='color: red' class='note'id='passwordyanzheng'>您两次输入的密码不一致请重新输入</span>";
-                document.getElementById("RexPassWord").focus();
+//                document.getElementById("RexPassWord").focus();
                 return false;
             }
         }
@@ -107,7 +107,8 @@
             <li><a href="#">台湾牛轧糖</a></li>
             <li><a href="#">蜜饯果脯</a></li>
             <li class="last">
-                <div id="welcome" class="welmsgdiv2"><span>您好，欢迎光临果果香。</span><a href="${ctx}/login">登录</a><span class="Lloginfg">&nbsp;</span><a href="${ctx}/reg">注册</a></div>
+                <div id="welcome" class="welmsgdiv2"><span>您好，欢迎光临果果香。</span><a href="${ctx}/login">登录</a><span
+                        class="Lloginfg">&nbsp;</span><a href="${ctx}/regist">注册</a></div>
             </li>
         </ul>
     </div>
@@ -154,20 +155,24 @@
                     <td class="sty03" valign="top" align="right">请设定密码：</td>
                     <td class="sty01" valign="top">
                         <form:password path="password" id="password"/><span id="CheckRePassWord"
-                                                                            class="Reginput"></span></td>
+                                                                            class="Reginput"
+                                                                            style="color: red"><form:errors
+                            path="password" cssClass="errorClass"></form:errors></span></td>
                     <td class="sty03 sty04" valign="top" align="left">　密码请设为6-16位字母或数字</td>
                 </tr>
                 <tr>
                     <td class="sty03" valign="top" align="right">请再次输入设定密码：</td>
                     <td class="sty01" valign="top">
                         <input id="RexPassWord" name="RexPassWord" maxlength="16" onchange="Check_RePassWord()" value=""
-                               type="password" onblur="valPassword()"><span id="ReCheckRePassWord" class="Reginput"/>
+                               type="password" onblur="valPassword()"><span id="ReCheckRePassWord"
+                                                                            class="Reginput">${msg}</span>
                     </td>
                     <td align="left">　</td>
                 </tr>
                 <tr>
                     <td class="sty03" valign="top" align="right">请输入验证码：</td>
-                    <td class="sty02" colspan="2" valign="top"><input name="Validate_Code" id="Validate_Code"
+                    <td class="sty02" colspan="2" valign="top">
+                        <input name="Validate_Code" id="Validate_Code"
                                                                       class="inputSty01" onchange="CheckValidateCode()"
                                                                       style="width:100px;" type="text"/><img id="Img1"
                                                                                                              style="vertical-align: top; padding: 0pt 0pt 0pt 8px; height: 20px; width: 70px "
@@ -175,7 +180,8 @@
                                                                                                              onclick="this.src='/valid?t='+new Date().getTime()"
                                                                                                              border="0"/>
                         <span class="sty03 ">看不清，请点击图片换一张</span>
-                        <span class="Reginput" id="CheckValidateCode" style="width: 220px;"></span></td>
+                        <span class="Reginput" id="CheckValidateCode"
+                              style="width: 220px;color: red">${msgvalide}</span></td>
                 </tr>
                 <tr>
                     <td>　</td>
