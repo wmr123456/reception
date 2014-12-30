@@ -26,6 +26,9 @@ public class IndexController {
     public void selectMemCla(Model model) {
         List<Merchandisecinfo> merchandisecinfos = mapper.selectMerchandisecinfo();
         System.out.println(merchandisecinfos.size());
-        model.addAttribute("", "");
+        for (int i = 0; i < merchandisecinfos.size(); i++) {
+            System.out.println(merchandisecinfos.get(i).getMerchandisecname());
+        }
+        model.addAttribute("merchanList", merchandisecinfos);
     }
 }
