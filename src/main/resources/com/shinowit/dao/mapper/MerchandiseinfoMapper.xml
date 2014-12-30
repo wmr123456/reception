@@ -433,4 +433,14 @@
     <select id="selectMaxPrimaryKeyValue" resultType="java.lang.String">
     select max(MerchandiseID) from merchandiseinfo
   </select>
+    <!--自增-->
+    <select id="selectMerchandise" resultMap="selectPageResult"
+            parameterType="com.shinowit.entity.MerchandiseinfoCriteria">
+        select * from merchandiseinfo limit 0,8
+    </select>
+    <!--查询-->
+    <select id="selectMerchandiseList" resultMap="selectPageResult"
+            parameterType="com.shinowit.entity.MerchandiseinfoCriteria">
+        select * from merchandiseinfo where merchandisecid = #{merchandisecid,jdbcType=VARCHAR} limit 0,16
+    </select>
 </mapper>

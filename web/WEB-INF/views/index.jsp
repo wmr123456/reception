@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -87,39 +88,20 @@
             <div id="left">
                 <h2>商品分类</h2>
                 <ul>
-                    <li><a href="inner-page.html">特级椒盐味</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">壳杏仁 23元/500克 </a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">壳杏仁 23元/500克 </a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">壳杏仁 23元/500克</a></li>
-                    <li><a href="#">壳杏仁 23元/500克 </a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">壳杏仁 23元/500克</a></li>
+                    <c:forEach items="${merchandC}" var="merchandisecinfo">
+                        <li><a href="inner-page.html">${merchandisecinfo.merchandisecname}</a></li>
+                        <input type="hidden" value="${merchandisecid}"/>
+                    </c:forEach>
                 </ul>
-                <h2 class="detail">纸皮巴旦木龙果</h2>
+                <h2 class="detail">${merchandise.merchandisecname}</h2>
                 <ul class="leftLink">
-                    <li><a href="#">特级椒盐味</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">特级椒盐味</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">特级椒盐味</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">特级椒盐味</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
+                    <c:forEach items="${merchandiseinfoList}" var="merchandis1">
+                        <li><a href="#">${merchandis1.merchandisename}</a></li>
+                    </c:forEach>
                 </ul>
                 <br class="spacer" />
-<span style="color:#f9c441;">ssss<br />
-ssssssssss<br />
+<span style="color:#f9c441;"><br/>
+<br/>
 </span>
             </div>
             <!--left end -->
@@ -133,46 +115,16 @@ ssssssssss<br />
             <!--hotsale_ad end -->
             <!--hotsale start -->
             <div class="hotsale">
+                <c:forEach items="${merchan}" var="merchandise">
                 <dl>
-                    <dt><a href="inner-page.html" target="_new"><img src="${ctx}/images/T1.jpg" width="310" height="310" border="0" /></a></dt>
-                    <dd>实心眼 特级薄皮奶香味 巴旦木 250g</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="inner-page.html" target="_new"><img src="${ctx}/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
+                    <dt><a href="inner-page.html" target="_new"><img src="${ctx}/images/pro_02.jpg" width="160"
+                                                                     height="160" border="0"/></a></dt>
+                    <dd>${merchandise.merchandisename}</dd>
+                    <dd><span class="viv1">￥:${merchandise.price}</span><span class="viv2"><a href="inner-page.html"
+                                                                                              target="_new"><img
+                            src="${ctx}/images/vivioow_b2.jpg" width="80" height="24" border="0"/></a></span></dd>
                 </dl>
-                <dl>
-                    <dt><a href="inner-page.html" target="_new"><img src="${ctx}/images/pro_02.jpg" width="160" height="160" border="0" /></a></dt>
-                    <dd>推荐 新疆和田 玉枣 32元 肉厚 相当于昆仑山四星</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="inner-page.html" target="_new"><img src="${ctx}/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
-                </dl>
-                <dl>
-                    <dt><a href="inner-page.html" target="_new"><img src="${ctx}/images/pro_03.jpg" width="160" height="160" border="0" /></a></dt>
-                    <dd>推荐 新疆和田 玉枣 32元 肉厚 相当于昆仑山四星</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="inner-page.html" target="_new"><img src="${ctx}/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
-                </dl>
-                <dl>
-                    <dt><a href="inner-page.html" target="_new"><img src="${ctx}/images/pro_04.jpg" width="160" height="160" border="0" /></a></dt>
-                    <dd>推荐 新疆和田 玉枣 32元 肉厚 相当于昆仑山四星</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="inner-page.html" target="_new"><img src="${ctx}/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
-                </dl>
-                <dl>
-                    <dt><a href="inner-page.html" target="_new"><img src="${ctx}/images/pro_05.jpg" width="160" height="160" border="0" /></a></dt>
-                    <dd>推荐 新疆和田 玉枣 32元 肉厚 相当于昆仑山四星</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="inner-page.html" target="_new"><img src="${ctx}/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
-                </dl>
-                <dl>
-                    <dt><a href="inner-page.html" target="_new"><img src="${ctx}/images/pro_06.jpg" width="160" height="160" border="0" /></a></dt>
-                    <dd>推荐 新疆和田 玉枣 32元 肉厚 相当于昆仑山四星</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="inner-page.html" target="_new"><img src="${ctx}/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
-                </dl>
-                <dl>
-                    <dt><a href="inner-page.html" target="_new"><img src="${ctx}/images/pro_07.jpg" width="160" height="160" border="0" /></a></dt>
-                    <dd>推荐 新疆和田 玉枣 32元 肉厚 相当于昆仑山四星</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="inner-page.html" target="_new"><img src="${ctx}/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
-                </dl>
-                <dl>
-                    <dt><a href="inner-page.html" target="_new"><img src="${ctx}/images/pro_08.jpg" width="160" height="160" border="0" /></a></dt>
-                    <dd>推荐 新疆和田 玉枣 32元 肉厚 相当于昆仑山四星</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="inner-page.html" target="_new"><img src="${ctx}/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
-                </dl>
+                </c:forEach>
                 <br class="spacer" />
             </div>
             <!--hotsale end -->
