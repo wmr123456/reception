@@ -280,6 +280,7 @@
     -->
 
     </resultMap>
+    <!--自增-->
     <select id="selectPage" resultMap="selectPageResult" parameterType="com.shinowit.entity.MerchandisecinfoCriteria">
         select a.* from merchandisecinfo a
         <if test="_parameter != null">
@@ -289,6 +290,11 @@
         limit ${skipRecordCount}, ${pageSize}
     </select>
     <select id="selectMaxPrimaryKeyValue" resultType="java.lang.String">
-    select max(MerchandiseCID) from merchandisecinfo
-  </select>
+        select max(MerchandiseCID) from merchandisecinfo
+    </select>
+
+    <select id="selectMerchandisecinfo" resultMap="selectPageResult"
+            parameterType="com.shinowit.entity.MerchandisecinfoCriteria">
+        select * from merchandisecinfo
+    </select>
 </mapper>

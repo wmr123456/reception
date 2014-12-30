@@ -98,4 +98,7 @@ public interface MerchandisecinfoMapper {
     List<Merchandisecinfo> selectPage(MerchandisecinfoCriteria example);
 
     String selectMaxPrimaryKeyValue();
+
+    //自增
+    List<Merchandisecinfo> selectMerchandisecinfo();
 }
