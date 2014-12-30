@@ -49,6 +49,12 @@
 
         <table tableName="memberinfo">
         </table>
+
+        <table tableName="merchandisecinfo">
+        </table>
+
+        <table tableName="merchandiseinfo">
+        </table>
         <!--<table tableName="userinfo">-->
             <!--<generatedKey column="user_id" sqlStatement="MySql"-->
                           <!--identity="true" />-->

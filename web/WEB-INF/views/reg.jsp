@@ -20,14 +20,14 @@
                 if (pattern.test(str1)) {
                     if (document.getElementById("usernameyanzheng")) {
                         document.getElementById("usernameyanzheng").remove();
-                    }
+                }
                     document.getElementById("membername1").innerHTML = "";
                     return true;
                 } else {
-                    document.getElementById("membername1").innerHTML = "<span style='color: red' class='note'id='usernameyanzheng'>用户名应以字母开头的6-12位字符</span>";
-                    document.getElementById("name").focus();
-                }
+                document.getElementById("membername1").innerHTML = "<span style='color: red' class='note'id='usernameyanzheng'>用户名应以字母开头的6-12位字符</span>";
+                document.getElementById("name").focus();
             }
+        }
             else {
                 document.getElementById("membername1").innerHTML = "<span style='color: red' class='note'id='usernameyanzheng'>用户名应以字母开头的6-12位字符</span>";
                 document.getElementById("name").focus();
@@ -40,11 +40,11 @@
             if (str.match(pattern) == null) {
                 if (document.getElementById("emailyanzheng")) {
                     document.getElementById("emailyanzheng").remove();
-                }
+            }
                 document.getElementById("span_CheckEmail").innerHTML = "<span style='color: red' class='note'id='emailyanzheng'>您输入的邮箱不合法，请输入正确的邮箱</span>";
                 document.getElementById("email").focus();
                 return false;
-            }
+        }
             else {
                 document.getElementById("span_CheckEmail").innerHTML = "";
                 return true;
@@ -56,7 +56,7 @@
             if (str === document.getElementById("RexPassWord").value) {
                 if (document.getElementById("passwordyanzheng")) {
                     document.getElementById("passwordyanzheng").remove();
-                }
+            }
                 document.getElementById("ReCheckRePassWord").innerHTML = "";
                 return true;
             }
@@ -64,7 +64,7 @@
                 document.getElementById("ReCheckRePassWord").innerHTML = "<span style='color: red' class='note'id='passwordyanzheng'>您两次输入的密码不一致请重新输入</span>";
 //                document.getElementById("RexPassWord").focus();
                 return false;
-            }
+        }
         }
     </script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

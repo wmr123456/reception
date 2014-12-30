@@ -183,7 +183,7 @@ ssssssssss<br />
     <!--footer start -->
     <div id="footer">
         <ul>
-            <li><a href="#">首页</a>|</li>
+            <li><a href="index">首页</a>|</li>
             <li><a href="#">关于我们</a>|</li>
             <li><a href="#">新闻资讯</a>|</li>
             <li><a href="#">价单下载</a>|</li>

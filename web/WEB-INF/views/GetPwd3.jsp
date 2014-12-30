@@ -23,27 +23,6 @@
     <link href="${ctx}/css/LoginAndReg.css" rel="stylesheet" type="text/css"/>
     <link href="${ctx}/css/GetPwd.css" rel="stylesheet" type="text/css"/>
     <script language="JavaScript">
-        function valName() {
-            var pattern = new RegExp("^[a-z]([a-z0-9])*[-_]?([a-z0-9]+)$", "i");
-            var str1 = document.getElementById("name").value;
-            if (str1.length >= 6) {
-                if (pattern.test(str1)) {
-                    if (document.getElementById("usernameyanzheng")) {
-                        document.getElementById("usernameyanzheng").remove();
-                    }
-                    document.getElementById("membername1").innerHTML = "";
-                    return true;
-                } else {
-                    document.getElementById("membername1").innerHTML = "<span style='color: red' class='note'id='usernameyanzheng'>用户名应以字母开头的6-12位字符</span>";
-                    document.getElementById("name").focus();
-                }
-            }
-            else {
-                document.getElementById("membername1").innerHTML = "<span style='color: red' class='note'id='usernameyanzheng'>用户名应以字母开头的6-12位字符</span>";
-                document.getElementById("name").focus();
-                return false;
-            }
-        }
         function valEmail() {
             var str = document.getElementById("email").value;
             var pattern = new RegExp("\\w+@(\\w+.)+[a-z]{2,3}");
@@ -63,7 +42,7 @@
 
         function valPassword() {
             var str = document.getElementById("password").value;
-            if (str === document.getElementById("RexPassWord").value) {
+            if (str === document.getElementById("password1").value) {
                 if (document.getElementById("passwordyanzheng")) {
                     document.getElementById("passwordyanzheng").remove();
                 }
@@ -72,7 +51,6 @@
             }
             else {
                 document.getElementById("ReCheckRePassWord").innerHTML = "<span style='color: red' class='note'id='passwordyanzheng'>您两次输入的密码不一致请重新输入</span>";
-//                document.getElementById("RexPassWord").focus();
                 return false;
             }
         }
@@ -148,13 +126,15 @@
                     <input type="text" name="membername"/><br/>
                     <span class="blank15"></span>
                     <label>输入&nbsp&nbsp邮箱：&nbsp</label>
-                    <input type="text" name="email"/><br/>
+                    <input type="text" name="email" id="email" onblur="valEmail()"/><br/>
+                    <span id="span_CheckEmail"></span>
                     <span class="blank15"></span>
                     <label>输入新密码：</label>
-                    <input type="password" name="password"/><br/>
+                    <input type="password" name="password" id="password"/><br/>
                     <span class="blank15"></span>
                     <label>确认密码&nbsp&nbsp：&nbsp</label>
-                    <input type="password" name="password1"/><br/>
+                    <input type="password" name="password1" id="password1" onblur="valPassword()"/><br/>
+                    <span id="ReCheckRePassWord"></span>
                     <span class="blank15"></span>
                     <input type="submit" value="确认修改" align="right"/>
                 </form>

@@ -297,15 +297,22 @@ public class Memberinfo implements Serializable {
             return false;
         }
         Memberinfo other = (Memberinfo) that;
-        return (this.getMemberid() == null ? other.getMemberid() == null : this.getMemberid().equals(other.getMemberid()))
-                && (this.getMembername() == null ? other.getMembername() == null : this.getMembername().equals(other.getMembername()))
-                && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
+        return (this.getMemberid() == null ? other.getMemberid() == null : this.getMemberid().equals
+                (other.getMemberid()))
+                && (this.getMembername() == null ? other.getMembername() == null : this.getMembername().equals
+                (other.getMembername()))
+                && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals
+                (other.getPassword()))
                 && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()))
                 && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-                && (this.getBalance() == null ? other.getBalance() == null : this.getBalance().equals(other.getBalance()))
-                && (this.getRegistdate() == null ? other.getRegistdate() == null : this.getRegistdate().equals(other.getRegistdate()))
-                && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
-                && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark()));
+                && (this.getBalance() == null ? other.getBalance() == null : this.getBalance().equals
+                (other.getBalance()))
+                && (this.getRegistdate() == null ? other.getRegistdate() == null : this.getRegistdate().equals
+                (other.getRegistdate()))
+                && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus
+                ()))
+                && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark
+                ()));
     }
 
     /**
