@@ -89,7 +89,7 @@
                 <h2>商品分类</h2>
                 <ul>
                     <c:forEach items="${merchandC}" var="merchandisecinfo">
-                        <li><a href="inner-page.html">${merchandisecinfo.merchandisecname}</a></li>
+                        <li><a href="">${merchandisecinfo.merchandisecname}</a></li>
                         <input type="hidden" value="${merchandisecid}"/>
                     </c:forEach>
                 </ul>
@@ -117,7 +117,7 @@
             <div class="hotsale">
                 <c:forEach items="${merchan}" var="merchandise">
                 <dl>
-                    <dt><a href="inner-page.html" target="_new"><img src="${ctx}/images/pro_02.jpg" width="160"
+                    <dt><a href="/inner-page" target="_new"><img src="${ctx}/images/pro_02.jpg" width="160"
                                                                      height="160" border="0"/></a></dt>
                     <dd>${merchandise.merchandisename}</dd>
                     <dd><span class="viv1">￥:${merchandise.price}</span><span class="viv2"><a href="inner-page.html"

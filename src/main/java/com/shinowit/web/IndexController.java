@@ -31,10 +31,32 @@ public class IndexController {
         int i = (int) (Math.random() * merchandiseinfos.size());
         Merchandisecinfo merchandisecinfo = selectOneMemcha(merchandisecinfos.get(i).getMerchandisecid());
         model.addAttribute("merchandise", merchandisecinfo);//单个商品类
-        List<Merchandiseinfo> merchandiseinfoList = selectMerchandiseinfoList("1");//merchandisecinfo.getMerchandisecid()
+        List<Merchandiseinfo> merchandiseinfoList = selectMerchandiseinfoList(merchandisecinfo.getMerchandisecid());//
         model.addAttribute("merchandiseinfoList", merchandiseinfoList);//商品的列表
         return "index";
     }
+
+//    @RequestMapping("inner-pageMerchandise")
+//    public String selectMerchandise(Model model,HttpServletRequest request){
+//        String id =request.getParameter("id");
+//        try {
+//            List<Merchandiseinfo> merchandiseinfos = queryMerchandisec(id);
+//            model.addAttribute("merchan",merchandiseinfos);
+//        }catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return "index";
+//    }
+//
+//    public List<Merchandiseinfo> queryMerchandisec(String merchandisecId){
+//        List<Merchandiseinfo> merchandiseinfos = new ArrayList<Merchandiseinfo>();
+//        try {
+//            merchandiseinfos = mapperMercha.selectMerchandiseList(merchandisecId);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//        return merchandiseinfos;
+//    }
 
     public List<Merchandisecinfo> selectMemCla() {
         List<Merchandisecinfo> merchandisecinfos = mapper.selectMerchandisecinfo();

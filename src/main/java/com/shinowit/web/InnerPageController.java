@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class InnerPageController {
     @RequestMapping("inner-page")
-    public String innerPage(){
+    public String innerPage() {
         return "inner-page";
     }
 }
