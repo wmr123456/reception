@@ -14,6 +14,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>启奥</title>
     <link href="${ctx}/css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="${ctx}/js/jquery-1.9.1.js"></script>
 </head>
 
 <body>
@@ -35,6 +36,35 @@
             <input type="text" name="txtbox" value="购物搜索" class="txtBox" />
             <input type="submit" name="go" value="搜" class="go" />
         </form>
+        <script type="text/javascript">
+            var list = {};
+            function check(bb) {
+                var is = bb;
+                $.ajax({
+                    type: "GET",
+                    url: "inner-pageMerchandise?id=" + is,
+//                    data:"username="+$("#username").val(),
+                    dataType: "json",
+                    success: function (data) {
+//                        list = eval(data);
+                        list = data;
+//                        alert(list);
+//                        if(data.result=="1"){
+//                            alert("用户名可用");
+//                            $("#spaName").html("<font color=green>可应使用</font>");
+//                        }else{
+//                            alert("用户名不可用");
+//                            $("#spaName").html("<font color=green>可应使用</font>");
+//                        }
+                        $("#hotsale").html("<strong>" + "hehe" + "</strong>");//更新id为weather-temp的html的元素
+                        return list;
+                    },
+                    error: function () {
+                        alert("加载失败！")
+                    }
+                });
+            }
+        </script>
     </div>
     <!--top end -->
     <!--header start -->
@@ -87,10 +117,13 @@
             <!--left start -->
             <div id="left">
                 <h2>商品分类</h2>
-                <ul>
+                <ul id="table">
                     <c:forEach items="${merchandC}" var="merchandisecinfo">
-                        <li><a href="">${merchandisecinfo.merchandisecname}</a></li>
-                        <input type="hidden" value="${merchandisecid}"/>
+                        <li>
+                            <a onclick="check('${merchandisecinfo.merchandisecid}')">${merchandisecinfo.merchandisecname}</a>
+                        </li>
+                        <input type="hidden" id="${merchandisecinfo.merchandisecname}"
+                               value="${merchandisecinfo.merchandisecid}"/>
                     </c:forEach>
                 </ul>
                 <h2 class="detail">${merchandise.merchandisecname}</h2>
@@ -114,8 +147,8 @@
             <div class="hotsale_ad"><img src="${ctx}/images/pic1.jpg" width="780" height="274" /></div>
             <!--hotsale_ad end -->
             <!--hotsale start -->
-            <div class="hotsale">
-                <c:forEach items="${merchan}" var="merchandise">
+            <div class="hotsale" id="hotsale">
+            <c:forEach items="${merchan}" var="merchandise">
                 <dl>
                     <dt><a href="/inner-page" target="_new"><img src="${ctx}/images/pro_02.jpg" width="160"
                                                                      height="160" border="0"/></a></dt>

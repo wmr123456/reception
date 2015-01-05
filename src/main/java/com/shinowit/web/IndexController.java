@@ -7,8 +7,10 @@ import com.shinowit.entity.Merchandiseinfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,27 +38,30 @@ public class IndexController {
         return "index";
     }
 
-//    @RequestMapping("inner-pageMerchandise")
-//    public String selectMerchandise(Model model,HttpServletRequest request){
-//        String id =request.getParameter("id");
-//        try {
-//            List<Merchandiseinfo> merchandiseinfos = queryMerchandisec(id);
+    @RequestMapping("inner-pageMerchandise")
+    @ResponseBody
+    public List<Merchandiseinfo> selectMerchandise(HttpServletRequest request) {
+        String id = request.getParameter("id");
+        List<Merchandiseinfo> merchandiseinfos = new ArrayList<Merchandiseinfo>();
+        try {
+            merchandiseinfos = queryMerchandisec(id);
 //            model.addAttribute("merchan",merchandiseinfos);
-//        }catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return "index";
-//    }
-//
-//    public List<Merchandiseinfo> queryMerchandisec(String merchandisecId){
-//        List<Merchandiseinfo> merchandiseinfos = new ArrayList<Merchandiseinfo>();
-//        try {
-//            merchandiseinfos = mapperMercha.selectMerchandiseList(merchandisecId);
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-//        return merchandiseinfos;
-//    }
+            return merchandiseinfos;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return merchandiseinfos;
+    }
+
+    public List<Merchandiseinfo> queryMerchandisec(String merchandisecId) {
+        List<Merchandiseinfo> merchandiseinfos = new ArrayList<Merchandiseinfo>();
+        try {
+            merchandiseinfos = mapperMercha.selectMerchandiseList(merchandisecId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return merchandiseinfos;
+    }
 
     public List<Merchandisecinfo> selectMemCla() {
         List<Merchandisecinfo> merchandisecinfos = mapper.selectMerchandisecinfo();
