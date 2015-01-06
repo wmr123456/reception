@@ -68,7 +68,6 @@ public class IndexController {
         return merchandisecinfos;
     }
 
-    //
     public List<Merchandiseinfo> selectMemcha() {
         List<Merchandiseinfo> merchandiseinfos = new ArrayList<Merchandiseinfo>();
         try {
