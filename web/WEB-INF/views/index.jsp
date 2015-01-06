@@ -21,7 +21,9 @@
 <div id="box">
     <!--top start -->
     <div id="top">
-        <a href="index.html"><img src="${ctx}/images/logo.gif" alt="Estimation" width="255" height="58" border="0" class="logo" /></a>
+        <a href="/index"><img src="${ctx}/images/logo.gif" alt="Estimation" width="255" height="58" border="0"
+                              class="logo"/></a>
+
         <p class="topDiv"></p>
         <p class="navLeft"></p>
         <ul>
@@ -42,21 +44,21 @@
                 var is = bb;
                 $.ajax({
                     type: "GET",
-                    url: "inner-pageMerchandise?id=" + is,
-//                    data:"username="+$("#username").val(),
-                    dataType: "json",
+                    url: "/inner-pageMerchandise?id=" + is,
+//                    dataType: "json",
                     success: function (data) {
-//                        list = eval(data);
-                        list = data;
-//                        alert(list);
-//                        if(data.result=="1"){
-//                            alert("用户名可用");
-//                            $("#spaName").html("<font color=green>可应使用</font>");
-//                        }else{
-//                            alert("用户名不可用");
-//                            $("#spaName").html("<font color=green>可应使用</font>");
-//                        }
-                        $("#hotsale").html("<strong>" + "hehe" + "</strong>");//更新id为weather-temp的html的元素
+                        list = eval(data);
+//                        list = data;
+                        $("#hotsale").children().remove();
+                        $.each(data, function (n, value) {
+//                            alert(n+''+value)
+                            $("#hotsale").append("<dl><dt><a href='inner-page' target='_new'>" +
+                                    "<img src='${ctx}/images/pro_02.jpg' width='160' height='160'border='0'/></a></dt>" +
+                                    "<dd>" + value.merchandisename + "</dd>" +
+                                    "<dd><span class='viv1'>￥:" + value.price + "</span>" +
+                                    "<span class='viv2'><a href='inner-page' target='_new'><img src='${ctx}/images/vivioow_b2.jpg' width='80' height='24'border='0'/>" + "</a></span></dd></dl>");//更新id为weather-temp的html的元素
+                        })
+                        $("#hotsale").append("<br class='spacer'>")
                         return list;
                     },
                     error: function () {
@@ -129,13 +131,14 @@
                 <h2 class="detail">${merchandise.merchandisecname}</h2>
                 <ul class="leftLink">
                     <c:forEach items="${merchandiseinfoList}" var="merchandis1">
-                        <li><a href="#">${merchandis1.merchandisename}</a></li>
+                        <li><a href="inner-page" target="_new">${merchandis1.merchandisename}</a></li>
+                        <input type="hidden" value="${merchandis1.merchandiseid}">
                     </c:forEach>
                 </ul>
                 <br class="spacer" />
-<span style="color:#f9c441;"><br/>
-<br/>
-</span>
+            <span style="color:#f9c441;"><br/>
+            <br/>
+            </span>
             </div>
             <!--left end -->
         </div>

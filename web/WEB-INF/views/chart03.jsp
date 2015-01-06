@@ -112,8 +112,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td height="50" class="typeTd2"><a href="chart04.html"><img src="${ctx}/images/button_000.gif"
-                                                                                    border="0" onclick="#"/></a><br/>
+                        <td height="50" class="typeTd2"><a href="/char04"><img src="${ctx}/images/button_000.gif"
+                                                                               border="0" onclick="#"/></a><br/>
                         </td>
                 </table>
 <SPAN

@@ -24,6 +24,7 @@ public class IndexController {
     private MerchandisecinfoMapper mapper;
     @Resource
     private MerchandiseinfoMapper mapperMercha;
+
     @RequestMapping("index")
     public String index(Model model) {
         List<Merchandisecinfo> merchandisecinfos = selectMemCla();
@@ -46,7 +47,6 @@ public class IndexController {
         try {
             merchandiseinfos = queryMerchandisec(id);
 //            model.addAttribute("merchan",merchandiseinfos);
-            return merchandiseinfos;
         } catch (Exception e) {
             e.printStackTrace();
         }

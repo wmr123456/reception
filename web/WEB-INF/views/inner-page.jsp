@@ -13,6 +13,11 @@
     <title>启奥</title>
     <link href="${ctx}/css/style.css" rel="stylesheet" type="text/css"/>
     <link href="${ctx}/css/innerstyle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript">
+        function chen() {
+            alert("hehe")
+        }
+    </script>
 </head>
 <body>
 <div id="box">
@@ -115,8 +120,8 @@
                 <li><a href="#">纸皮巴旦木龙果</a></li>
             </ul>
             <br class="spacer"/>
-    <span style="color:#f9c441;">sssss<br/>
-    ssssssssss<br/>
+    <span style="color:#f9c441;"><br/>
+    <br/>
     </span></div>
         <!--left end -->
     </div>
@@ -127,7 +132,12 @@
         <!--pro_price start -->
         <div class="pro_price">
             <dl>
-                <dt><img src="${ctx}/images/T1.jpg" width="310" height="310"/></dt>
+                <dt><img src="${ctx}/images/T1.jpg" width="310" height="310"/>
+                    <span><img src="${ctx}/images/buy.png" width="120" height='30' border='0' onclick="chen()"/></span>
+                    <span><img src="${ctx}/images/chart.png" width="120" height='30' border='0'
+                               onclick="chen()"/></span>
+                </dt>
+
                 <dd>
                     <table height="413" border="1" cellpadding="0" cellspacing="0"
                            style="border-collapse:collapse; border:#ccc 1px solid;">

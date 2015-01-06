@@ -6,6 +6,7 @@ import com.shinowit.tools.MD5;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +26,7 @@ public class LoginController {
     }
 
     @RequestMapping("Login")
-    public String loginL(Model model, HttpServletRequest request) {
+    public String loginL(Model model, HttpServletRequest request, RedirectAttributes redirectAttributes) {
         String uername = request.getParameter("UserName");
         String passwrod = request.getParameter("PassWord");
         MD5 md5 = new MD5();
@@ -40,7 +41,7 @@ public class LoginController {
         if (mer != null) {
             if (mer.getStatus()) {
                 model.addAttribute("msg", "登陆成功！");
-                return "index";
+                return "redirect:/index";
             } else {
                 model.addAttribute("msg", "用户尚未激活，请先激活后再登录");
                 return "login";
