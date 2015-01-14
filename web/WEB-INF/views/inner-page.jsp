@@ -19,32 +19,12 @@
     <script type="text/javascript">
         var list = {};
         function chen() {
-            alert("hehe")
+//            alert("hehe")
+            location.href = "123456";
         }
-        function check() {
-            $.ajax({
-                type: "GET",
-                url: "/inner-pageMerchandise?id=" + 1,
-                success: function (data) {
-                    list = eval(data);
-                    $("#hotsale").children().remove();
-                    $.each(data, function (n, value) {
-//                            alert(n+''+value)
-                        $("#hotsale").append("<dl><dt><a href='inner-page' target='_new'>" +
-                                "<img src='${ctx}/images/pro_02.jpg' width='160' height='160'border='0'/></a></dt>" +
-                                "<dd>" + value.merchandisename + "</dd>" +
-                                "<dd><span class='viv1'>￥:" + value.price + "</span>" +
-                                "<span class='viv2'><a href='inner-page' target='_new'><img src='${ctx}/images/vivioow_b2.jpg' width='80' height='24'border='0'/>" + "</a></span></dd></dl>");//更新id为weather-temp的html的元素
-                    })
-                    $("#hotsale").append("<br class='spacer'>")
-                    return list;
-                },
-                error: function () {
-                    alert("加载失败！")
-                }
-            });
+        function putInChart() {
+            location.href = "789";
         }
-        check();
     </script>
 </head>
 <body>
@@ -54,6 +34,7 @@
 <div id="top">
     <a href="index.html"><img src="${ctx}/images/logo.gif" alt="Estimation" width="255" height="58" border="0"
                               class="logo"/></a>
+
     <p class="topDiv"></p>
 
     <p class="navLeft"></p>
@@ -161,10 +142,10 @@
             <dl>
                 <dt><img src="${ctx}/images/T1.jpg" width="310" height="310"/>
                     <span><img src="${ctx}/images/buy.png" width="120" height='30' border='0' onclick="chen()"/></span>
+                    <%--<span><button  value="" style="width: 120px;height: 30px; background: url('/images/buy.png')"></button></span>--%>
                     <span><img src="${ctx}/images/chart.png" width="120" height='30' border='0'
-                               onclick="chen()"/></span>
+                               onclick="putInChart()"/></span>
                 </dt>
-
                 <dd>
                     <table height="413" border="1" cellpadding="0" cellspacing="0"
                            style="border-collapse:collapse; border:#ccc 1px solid;">
@@ -172,22 +153,22 @@
                         <tr>
                             <td valign="top" align="middle" width="323" colspan="2"
                                 height="30"><font
-                                    color="#bb1213"><strong>实心眼 特级薄皮奶香味 巴旦木 250g</strong></font></td>
+                                    color="#bb1213"><strong>${mercha.merchandisename}</strong></font></td>
                         </tr>
-                        <tr>
-                            <td valign="top" align="right" width="111"
-                                height="28">市 场 价：
-                            </td>
-                            <td valign="top" width="212" height="28"><span
-                                    style="text-decoration:line-through; font-size:14px;color:#666; font-weight:bold;">￥25.0</span>
-                            </td>
-                        </tr>
+                        <%--<tr>--%>
+                        <%--<td valign="top" align="right" width="111"--%>
+                        <%--height="28">市 场 价：--%>
+                        <%--</td>--%>
+                        <%--<td valign="top" width="212" height="28"><span--%>
+                        <%--style="text-decoration:line-through; font-size:14px;color:#666; font-weight:bold;">￥:"${merch1.picpath}"</span>--%>
+                        <%--</td>--%>
+                        <%--</tr>--%>
                         <tr>
                             <td valign="top" align="right" width="111"
                                 height="28">网 站 价：
                             </td>
                             <td valign="top" width="212" height="28"><span
-                                    style=" font-size:14px;color:#c00; font-weight:bold;">￥18.0</span></td>
+                                    style=" font-size:14px;color:#c00; font-weight:bold;">￥${mercha.price}</span></td>
                         </tr>
                         <tr>
                             <td valign="top" align="right" width="111"
@@ -214,15 +195,18 @@
                                        width="100%" border="0" style="border:none;">
                                     <tbody>
                                     <tr>
-                                        <td
-                                                valign="top">750g有机全麦粉<br/>
-                                            750g黄金玉米粉<br/>
-                                            750g黄豆粉<br/>
-                                            750g地瓜粉<br/>
-                                            750g高粱粉<br/>
-                                            750g豌豆粉<br/>
-                                            750g窝窝头粉<br/>
-                                            750g玉米糁
+
+                                        <td>
+                                            ${mercha.descri}
+
+                                            <%--valign="top">750g有机全麦粉<br/>--%>
+                                            <%--750g黄金玉米粉<br/>--%>
+                                            <%--750g黄豆粉<br/>--%>
+                                            <%--750g地瓜粉<br/>--%>
+                                            <%--750g高粱粉<br/>--%>
+                                            <%--750g豌豆粉<br/>--%>
+                                            <%--750g窝窝头粉<br/>--%>
+                                            <%--750g玉米糁--%>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -248,28 +232,9 @@
             <h3>--详细介绍--</h3>
             <!--pro_detail_con start -->
             <div class="pro_detail_con">
-                <p><strong>产品信息:</strong>所有散装东东在包装前都会经过严格挑拣，挑拣掉空籽、僵籽、空壳等，很难做到100%，坏籽的比率一般最多2-3％。是良好的蛋白质资源之一，同时也是一种极好的甲型生育酚型维生素E的来源，甲型生育酚是维生素E的最有效型态。美国杏仁还能提供镁、膳食纤维、钾、钙、磷和铁等。并且，美国杏仁中所含脂肪的近70%是有益于健康的单不饱和脂肪，研究表明其有助于保持一个健康的胆固醇水平。
-                </p>
+                <p><strong>产品信息:</strong>
 
-                <p>
-                    此外，杏仁和其他坚果中含有植物化学物质，这些植物成分可以有力地抗衡心脏病、中风以及其他慢性疾病。在树坚果家族中，美国杏仁和中国杏仁是两种不同的坚果，虽然在中文里它们都被称为杏仁，但两者的营养成分不同，功效也不同。美国大杏仁对人们来说总是有些黄金情节，爱，昂贵，奢侈，处于巨大压力，亚健康状态，辛苦劳累的我们，更应该爱惜自己，一瓶纽崔莱可以买10斤大杏仁了，而十分之一价格换来的是家人的健康和美味。
-                </p>
-
-                <p>
-                    此外，杏仁和其他坚果中含有植物化学物质，这些植物成分可以有力地抗衡心脏病、中风以及其他慢性疾病。在树坚果家族中，美国杏仁和中国杏仁是两种不同的坚果，虽然在中文里它们都被称为杏仁，但两者的营养成分不同，功效也不同。美国大杏仁对人们来说总是有些黄金情节，爱，昂贵，奢侈，处于巨大压力，亚健康状态，辛苦劳累的我们，更应该爱惜自己，一瓶纽崔莱可以买10斤大杏仁了，而十分之一价格换来的是家人的健康和美味。
-                </p>
-
-                <p>
-                    此外，杏仁和其他坚果中含有植物化学物质，这些植物成分可以有力地抗衡心脏病、中风以及其他慢性疾病。在树坚果家族中，美国杏仁和中国杏仁是两种不同的坚果，虽然在中文里它们都被称为杏仁，但两者的营养成分不同，功效也不同。美国大杏仁对人们来说总是有些黄金情节，爱，昂贵，奢侈，处于巨大压力，亚健康状态，辛苦劳累的我们，更应该爱惜自己，一瓶纽崔莱可以买10斤大杏仁了，而十分之一价格换来的是家人的健康和美味。
-                </p>
-
-                <p><strong>公司主营项目：</strong>中秋月饼 端午粽子 年货礼品 有机食品 干果杂粮 水果蔬菜 山菌海鲜 橄榄油 柴鸡蛋等成套礼品</p>
-
-                <p><strong>产品价格低:</strong>我们已与国内几十家正规大型工厂达成了共同开发、设计、生产、销售礼品的合作协议，最直接的礼品生产加工渠道以及薄利多销的经营准则使我们的礼品价格做到最低。
-                </p>
-
-                <p><strong>我们的客户包括:</strong>平安保险 光大银行 联想网御 爱国者 新雅迪传媒……北京乐购礼品团购网欢迎您的到来,公司服务于北京多家知名企事业单位。渠道市场京北京
-                    贵宾贵宾服务百分百。乐购为您提供礼品团购全攻略，专业的服务永远是我公司的经营宗旨。您的支持和鼓励都将成为我们前进的方向。为您提供专业的礼品团购服务，确保你的礼品团购，买的更放心。</p>
+                <p>${mercha.remark}</p>
             </div>
             <!--pro_detail_con end -->
         </div>

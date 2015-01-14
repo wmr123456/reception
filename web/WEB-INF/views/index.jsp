@@ -11,9 +11,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>启奥</title>
-    <link href="${ctx}/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="${ctx}/css/style.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="${ctx}/js/jquery-1.9.1.js"></script>
 </head>
 
@@ -25,6 +25,7 @@
                               class="logo"/></a>
 
         <p class="topDiv"></p>
+
         <p class="navLeft"></p>
         <ul>
             <li><a href="${ctx}/index" class="hover">首页</a></li>
@@ -33,10 +34,12 @@
             <li class="chart"><a href="${ctx}/chart">购物车</a></li>
         </ul>
         <p class="navRight"></p>
+
         <p class="topDiv"></p>
+
         <form name="serch" action="#" method="post">
-            <input type="text" name="txtbox" value="购物搜索" class="txtBox" />
-            <input type="submit" name="go" value="搜" class="go" />
+            <input type="text" name="txtbox" value="购物搜索" class="txtBox"/>
+            <input type="submit" name="go" value="搜" class="go"/>
         </form>
         <script type="text/javascript">
             var list = {};
@@ -48,7 +51,6 @@
 //                    dataType: "json",
                     success: function (data) {
                         list = eval(data);
-//                        list = data;
                         $("#hotsale").children().remove();
                         $.each(data, function (n, value) {
 //                            alert(n+''+value)
@@ -89,27 +91,32 @@
                             class="Lloginfg">&nbsp;</span><a href="${ctx}/regist">注册</a></div>
                 </li>
             </ul>
-        </div><!--nav end -->
+        </div>
+        <!--nav end -->
         <div class="spacer"></div>
     </div>
     <!--header end -->
     <!--guide01 start -->
     <div class="guide01">
-        <img src="${ctx}/images/guide_01.jpg" width="973" height="62" border="0" usemap="#Map" />
+        <img src="${ctx}/images/guide_01.jpg" width="973" height="62" border="0" usemap="#Map"/>
         <map name="Map" id="Map">
-            <area shape="rect" coords="398,11,493,51" href="#" />
-            <area shape="rect" coords="540,12,633,51" href="#" />
-            <area shape="rect" coords="684,12,790,53" href="#" />
-            <area shape="rect" coords="830,10,953,54" href="#" />
+            <area shape="rect" coords="398,11,493,51" href="#"/>
+            <area shape="rect" coords="540,12,633,51" href="#"/>
+            <area shape="rect" coords="684,12,790,53" href="#"/>
+            <area shape="rect" coords="830,10,953,54" href="#"/>
         </map>
-    </div><!--guide01 end -->
+    </div>
+    <!--guide01 end -->
     <!--guide02 start-->
-    <div class="guide02"> <a href="#"><img src="${ctx}/images/guide_02.jpg" width="492" height="107" border="0" /></a><a href="#"><img src="${ctx}/images/guide_03.jpg" width="481" height="107" border="0" /></a></div>
+    <div class="guide02"><a href="#"><img src="${ctx}/images/guide_02.jpg" width="492" height="107" border="0"/></a><a
+            href="#"><img src="${ctx}/images/guide_03.jpg" width="481" height="107" border="0"/></a></div>
     <!--guide02 end -->
     <!--recommend start-->
     <div class="recommend">
         <h2>推荐美国山核桃长寿果 大杏仁 15.8/半斤 奶香味</h2>
-        <p><img src="${ctx}/images/coma.gif" width="15" height="12" style="margin-right:12px;" />山核桃,又名胡桃、马核桃、核桃楸果,是乔木核桃楸的种子。山核桃营养丰富,价值很高,是一种优质木本高级油料作物。此外,还含锌、锰、铬等微量元素与尼克酸等。<img src="${ctx}/images/coma_inverse.gif" width="15" height="12" style="margin-left:12px;" /></p>
+
+        <p><img src="${ctx}/images/coma.gif" width="15" height="12" style="margin-right:12px;"/>山核桃,又名胡桃、马核桃、核桃楸果,是乔木核桃楸的种子。山核桃营养丰富,价值很高,是一种优质木本高级油料作物。此外,还含锌、锰、铬等微量元素与尼克酸等。<img
+                src="${ctx}/images/coma_inverse.gif" width="15" height="12" style="margin-left:12px;"/></p>
     </div>
     <!--recommend end-->
     <!--body start -->
@@ -135,7 +142,7 @@
                         <input type="hidden" value="${merchandis1.merchandiseid}">
                     </c:forEach>
                 </ul>
-                <br class="spacer" />
+                <br class="spacer"/>
             <span style="color:#f9c441;"><br/>
             <br/>
             </span>
@@ -147,26 +154,27 @@
         <div id="mid">
             <h2>新品上市</h2>
             <!--hotsale_ad start -->
-            <div class="hotsale_ad"><img src="${ctx}/images/pic1.jpg" width="780" height="274" /></div>
+            <div class="hotsale_ad"><img src="${ctx}/images/pic1.jpg" width="780" height="274"/></div>
             <!--hotsale_ad end -->
             <!--hotsale start -->
             <div class="hotsale" id="hotsale">
-            <c:forEach items="${merchan}" var="merchandise">
-                <dl>
-                    <dt><a href="/inner-page" target="_new"><img src="${ctx}/images/pro_02.jpg" width="160"
-                                                                     height="160" border="0"/></a></dt>
-                    <dd>${merchandise.merchandisename}</dd>
-                    <dd><span class="viv1">￥:${merchandise.price}</span><span class="viv2"><a href="inner-page.html"
-                                                                                              target="_new"><img
-                            src="${ctx}/images/vivioow_b2.jpg" width="80" height="24" border="0"/></a></span></dd>
-                </dl>
+                <c:forEach items="${merchan}" var="merchandise">
+                    <dl>
+                        <dt><a href="/inner-page?id=${merchandise.merchandiseid}" target="_new"><img
+                                src="${ctx}/images/pro_02.jpg" width="160"
+                                height="160" border="0"/></a></dt>
+                        <dd>${merchandise.merchandisename}</dd>
+                        <dd><span class="viv1">￥:${merchandise.price}</span><span class="viv2"><a href="inner-page.html"
+                                                                                                  target="_new"><img
+                                src="${ctx}/images/vivioow_b2.jpg" width="80" height="24" border="0"/></a></span></dd>
+                    </dl>
                 </c:forEach>
-                <br class="spacer" />
+                <br class="spacer"/>
             </div>
             <!--hotsale end -->
         </div>
         <!--mid end -->
-        <br class="spacer" />
+        <br class="spacer"/>
     </div>
     <!--footer start -->
     <div id="footer">
@@ -180,9 +188,12 @@
         <p class="copyright">Copyright 2010 vancl.com All Rights Reserved 冀ICP证xxxxxx号
 
         </p>
+
         <p class="design"><a href="http://www.CSSK8.com/" target="_blank" class="link">启奥科技</a></p>
-    </div><!--footer end -->
+    </div>
+    <!--footer end -->
     <!--body end -->
-</div><!--box-->
+</div>
+<!--box-->
 </body>
 </html>
