@@ -25,6 +25,11 @@ public class InnerPageController {
         model.addAttribute("mercha", merchandiseinfo);
         return "inner-page";
     }
+
+    @RequestMapping(value = "buyNow")
+    public String buy() {
+        return "chart01";
+    }
 }
 
 

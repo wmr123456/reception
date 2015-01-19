@@ -20,10 +20,21 @@
         var list = {};
         function chen() {
 //            alert("hehe")
-            location.href = "123456";
+            location.href = "buyNow";
         }
         function putInChart() {
             location.href = "789";
+        }
+        function sub() {
+            $("#count").val($("#count").val() - 1);
+            if ($("#count").val() <= 0) {
+                $("#count").val("1");
+            }
+        }
+
+        function add() {
+            var num = document.getElementById("count");
+            num.value = parseInt(num.value) + 1;
         }
     </script>
 </head>
@@ -218,8 +229,18 @@
                         </tr>
                         <tr>
                             <td align="middle" width="323" colspan="2"
-                                height="89"><span style="font-size:20px; color:#f00; font-weight:bold;">批发价热线：0315-3876584</span>
+                                height="89"><span style="font-size:20px; color:#f00; font-weight:bold;">数量：<img
+                                    src="${ctx}/images/sub.png" onclick="sub()"/> <input type="text" id="count"
+                                                                                         name="count"
+                                                                                         style="width: 30px" value="1"
+                                                                                         onKeyUp="this.value=this.value.replace(/\D/g,'')"
+                                                                                         onafterpaste="this.value=this.value.replace(/\D/g,'')"/> <img
+                                    src="${ctx}/images/add.png" onclick="add()"/>
                             </td>
+                        </tr>
+                        <tr>
+                            <td align="middle" width="323" colspan="2" height="89"><span
+                                    style="font-size:20px; color:#f00; font-weight:bold;">批发价热线：0315-3876584</span></td>
                         </tr>
                         </tbody>
                     </table>

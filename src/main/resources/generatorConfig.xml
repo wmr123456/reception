@@ -58,6 +58,8 @@
 
         <table tableName="chart">
         </table>
+        <table tableName="memberAddress">
+        </table>
         <!--<table tableName="userinfo">-->
             <!--<generatedKey column="user_id" sqlStatement="MySql"-->
                           <!--identity="true" />-->

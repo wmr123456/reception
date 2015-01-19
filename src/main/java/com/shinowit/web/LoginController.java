@@ -41,6 +41,7 @@ public class LoginController {
         if (mer != null) {
             if (mer.getStatus()) {
                 model.addAttribute("msg", "登陆成功！");
+                request.getSession(true).setAttribute("currten_mermberi", mer);
                 return "redirect:/index";
             } else {
                 model.addAttribute("msg", "用户尚未激活，请先激活后再登录");

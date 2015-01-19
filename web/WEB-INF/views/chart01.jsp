@@ -10,7 +10,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>无标题文档</title>
+    <title>订单信息</title>
     <link href="${ctx}/css/style.css" rel="stylesheet" type="text/css"/>
     <link href="${ctx}/css/LoginAndReg.css" rel="stylesheet" type="text/css"/>
     <link href="${ctx}/css/gmxx.css" rel="stylesheet" type="text/css"/>
@@ -130,7 +130,7 @@
                                         src="${ctx}/images/button_pszADd.gif" border="0" onclick="#"/></a></span></li>
                             <li class="liSty"></li>
                         </ul>
-                        <div style="height:25px!important;color:#fff;">dddddddddddd</div>
+                        <div style="height:25px!important;color:#fff;"></div>
                     </div>
                     <div id="edit">
                         <div class="bxSty1">
