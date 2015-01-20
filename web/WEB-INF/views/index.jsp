@@ -54,11 +54,11 @@
                         $("#hotsale").children().remove();
                         $.each(data, function (n, value) {
 //                            alert(n+''+value)
-                            $("#hotsale").append("<dl><dt><a href='inner-page' target='_new'>" +
+                            $("#hotsale").append("<dl><dt><a target='_new' href='inner-page?id=" + value.merchandiseid + "'>" +
                                     "<img src='${ctx}/images/pro_02.jpg' width='160' height='160'border='0'/></a></dt>" +
                                     "<dd>" + value.merchandisename + "</dd>" +
                                     "<dd><span class='viv1'>￥:" + value.price + "</span>" +
-                                    "<span class='viv2'><a href='inner-page' target='_new'><img src='${ctx}/images/vivioow_b2.jpg' width='80' height='24'border='0'/>" + "</a></span></dd></dl>");//更新id为weather-temp的html的元素
+                                    "<span class='viv2'><a href='inner-page?id=" + value.merchandiseid + "'+value.merchandiseid target='_new'><img src='${ctx}/images/vivioow_b2.jpg' width='80' height='24'border='0'/>" + "</a></span></dd></dl>");//更新id为weather-temp的html的元素
                         })
                         $("#hotsale").append("<br class='spacer'>")
                         return list;
@@ -138,7 +138,8 @@
                 <h2 class="detail">${merchandise.merchandisecname}</h2>
                 <ul class="leftLink">
                     <c:forEach items="${merchandiseinfoList}" var="merchandis1">
-                        <li><a href="inner-page" target="_new">${merchandis1.merchandisename}</a></li>
+                        <li><a href="inner-page?id=${merchandis1.merchandiseid}"
+                               target="_new">${merchandis1.merchandisename}</a></li>
                         <input type="hidden" value="${merchandis1.merchandiseid}">
                     </c:forEach>
                 </ul>
